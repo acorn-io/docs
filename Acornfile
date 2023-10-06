@@ -1,0 +1,14 @@
+containers: default: {
+	build: context: "."
+
+	if args.dev {
+		build: target:    "dynamic"
+		ports: publish:   "3000/http"
+		dirs: "/usr/src": "./"
+	}
+
+	if !args.dev {
+		build: target:  "static"
+		ports: publish: "80/http"
+	}
+}
