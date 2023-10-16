@@ -98,7 +98,7 @@ containers: {
 }
 ```
 
-By utilizing subpaths, we now have a single volume being utilized by two containers without collisions occuring between them. If you'd like to see another example of subpaths in action you can take a look at our [Getting Started](37-getting-started.md) guide.
+By utilizing subpaths, we now have a single volume being utilized by two containers without collisions occurring between them.
 
 ## Volumes with sidecars
 

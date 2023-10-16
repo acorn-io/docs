@@ -25,7 +25,3 @@ The extension also adds commands to the command palette to help you interact wit
 You can run interactive mode, get the logs, build an image, sign in to the platform, and deploy your application all from the command palette.
 
 You can also view the running apps in your account and move between projects from the Acorn panel view. To open the Acorn panel, click on the Acorn icon in the left-hand toolbar.
-
-## Next Steps
-
-* [Develop an App with Acorn](/develop/setup)

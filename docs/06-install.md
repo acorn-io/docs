@@ -2,14 +2,6 @@
 title: CLI Installation and Upgrade
 ---
 
-To interact with Acorn, you will need the Acorn CLI. Follow one of the methods below to install the Acorn CLI and then install onto the [Kubernetes cluster](#installing-acorn-onto-kubernetes-clusters).
-
-```shell
-acorn install
-```
-
-In many cases, the default installation options for Acorn are sufficient, but there are a number of options you can use to customize Acorn. See our [Installation Options](30-installation/02-options.md) page for more details.
-
 ## Acorn CLI
 
 ### Homebrew (macOS & Linux)

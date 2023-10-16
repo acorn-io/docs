@@ -345,25 +345,40 @@ if localData > 1 {
 }
 ```
 
-`if` statements can be added at any level or nested within each other, but there is no `else` in this format.
+`if` statements can be added at any level or nested within each other.
 
 ### If-else expressions
 
-Ternary or "if-else" expressions are available through a built-in function which takes 3 arguments:
+```acorn
+value: 1
 
-```std.ifelse(condition, value-if-true, value-if-false)```
+if value == 2 {
+    output: "value is 2"
+} else if value == 3 {
+    output: "value is 3"
+} else {
+    output: "value is not 2 or 3"
+}
+```
+
+The above will output:
+
+```acorn
+{
+    value: 1
+    output: "value is not 2 or 3"
+}
+```
 
 The following example will publish either port 3000 or 80 depending on `args.dev`:
 
 ```acorn
 containers: {
     app: {
-        ports: publish: std.ifelse(args.dev, "3000/http", "80/http")
+        ports: publish: if args.dev {"3000/http"} else {"80/http"}
     }
 }
 ```
-
-See the [function library](../reference/functions#ifelse) for more information.
 
 ## For loops
 
@@ -429,7 +444,3 @@ localData: {
   """
 }
 ```
-
-## Function Library
-
-Acorn includes a built-in library of functions to perform common operations.  See the [function library](../reference/functions) for more information.

@@ -3,30 +3,36 @@ title: Home
 slug: /
 ---
 
-Acorn is a fully managed developer platform for deploying and running cloud-native apps on the public cloud. With Acorn, there is no infrastructure or container orchestration required. You use familiar development and deployment workflow based on mainstream container tools without having to deal with provisioning or configuring cloud resources.
+## What is Acorn?
+
+Acorn is an app platform that makes it easy to build, share, and run containerized applications. Acorn provides a comprehensive way to describe your application and dependencies in a single file called an Acornfile. The Acornfile built and packaged up into a single artifact that contains everything needed to deploy your application, and can be shared with a link that will allow it's recipients to have a one click deployment into a sandbox environment.
 
 ## Key Features
 
-### Acorn Image
+### Acorn Sandboxes
 
-Acorn Image offers a holistic solution for developers to seamlessly manage and deploy applications. By encapsulating both the application and its associated dependencies, including cloud services, within a singular Acornfile, users can build and package this configuration into a cohesive OCI (Open Container Initiative) artifact. This ensures consistent and streamlined deployment processes. Acorn also simplifies defining and using secrets in a containerized application by removing the need to generate the secrets beforehand.
+Acorn Sandboxes are free compute environments in the cloud for anyone with a GitHub account to run, test, and develop Acorns. Sandboxes can be used as often as you like to run Acorns for up to 2 hours at a time. Sandbox environments allow for consuming up to 4GB of ram and up to 10GB of storage space. Acorns launched in the sandbox environment can be accessed via a public URL with SSL. The Acorns running in the Sandbox can be interacted with via the Acorn CLI or through the UI.
 
-### Developer Experience Reimagined
+### Acornfiles and Acorn Images
 
- Keep your workflow familiar and efficient with Acorn's personalized developer experience. Through a singular CLI, the deployment and management of both containerized applications and cloud services are realized. You can easily extend familiar workflow based on container management tools like Docker CLI to package, deploy, and manage Acorns.
+Acornfiles provide a simple way to describe how to deploy containers, services, volumes, secrets, jobs, and configuration for an entire application. These files are then built into Acorn images, similar to the way a Dockerfile is built into a Docker image. The Acorn image is then published to a registry and can be deployed into any Acorn environment. The process of building Acorn images is easily integrated into existing CI pipelines through the Acorn CLI. Acorn natively supports auto upgrading when new Acorn images are published to a registry.
 
-### AWS Management and Acorn Cloud
+### Sharable Acorn Links
 
-Start your Acorn journey with Acorn Cloud, the pre-configured sandbox environment, which is perfect for deploying Acorns. When it's time to transition to a production setting, Acorn extends the flexibility of integrating your personal AWS account. Simply input your AWS access key and secret key to decide which account and region to target your deployments.
+Acorn links allow you to share an Acorn image via status button, URL, Website, or QR code. Users who click on this link will be able to deploy the Acorn into their own Acorn Sandbox environment. Links are easily created within the Acorn UI and provide statistics for the publisher on how many times the link has been used.
 
-### Acorn Services  
+### Developer Focused
 
-Acorn Services expose a consistent interface for data services. Allowing you to swap out containers for and managed cloud services such as Amazon RDS, Amazon S3, Amazon SQS, and Amazon SNS all through Acorn. When you attach an AWS account you will have access through a dedicated service catalog. This catalog facilitates the discovery of these AWS based services, enabling their seamless integration with containerized applications.
+Acorn makes it easy to develop applications in containers. Acorn provides a built in development mode that can enable file syncing into containers, port forwarding, and the ability to hook up debuggers to your applications.
 
-### Comprehensive View with App Dashboard
+Developing Acornfiles for your application can be done directly from the Acorn UI in the playground environment without needing to install anything on your local machine. For developers who prefer to work in an IDE there is a Visual Studio Code Acorn extension to ease development of Acornfiles. This extension provides syntax highlighting, formatting, and more.
 
- Acorn's App Dashboard, a centralized hub, is designed for the comprehensive management of containerized applications and cloud services. This dashboard offers immediate access to various features, ranging from shell access, logs, events, to deep insights into your running applications.
+### Production Environments
 
-### Enhanced Project Management
+Acorn pro, teams, and enterprise accounts provide access to production grade environments. Sandboxes are still available with the 2 hour time limit, but access to regions that do not have 2 hour time restrictions on running Acorns along with additional access to resources. Running Acorns are billed by resource consumption. Production environments are run on AWS
 
-Improve collaboration and manage who has access to what with Acorn's project management features. With the integration with GitHub, it's easier than ever to establish nuanced, role-based access controls, ensuring the right people have the right access. You can easily define development, staging, and production environments and switch between them seamlessly. Project management also includes the ability to isolate applications with their own access controls and deployment rules.  
+### AWS Management
+
+Acorn teams and enterprise users can provide AWS credentials to Acorn to create dedicated environments in their own AWS accounts. Acorn will provision the underlying compute infrastructure along with the networking, IAM, storage, and registry components needed to run a production grade application. Pay for these resources directly to AWS.
+
+Users can also deploy Acorn services that provision and manage AWS resources like RDS, DynamoDB, and S3 buckets in their own AWS account without the developer needing to know Terraform or CloudFormation. Acorn manages the IAM roles and access to ensure only the provisioned resources are accessible to the application.

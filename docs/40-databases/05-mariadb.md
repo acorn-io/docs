@@ -56,4 +56,4 @@ The above Acornfile consumes the MariaDB service and uses the credentials to con
 @{services.<service-name>.<property>}
 ```
 
-The secrets propery is a list of secret names. The secret can be referenced by the secret name and key.
+The `secrets` property of a service is a list of secret names that can be referenced by a consuming container.

@@ -32,7 +32,6 @@ const sidebars = {
       items: [
         "sharing-acorns/overview",
         "sharing-acorns/links",
-        "sharing-acorns/stats",
       ]
     },
     {
@@ -41,6 +40,14 @@ const sidebars = {
       items: [
         "hands-on-with-acorn/dev-mode",
       ],
+    },
+    "sandbox",
+    {
+      "type": "category",
+      "label": "Developing with Acorn",
+      items: [
+        "development/vsc",
+      ]
     },
     {
       "type": "category",
@@ -79,8 +86,7 @@ const sidebars = {
         "advanced/publishing",
         "advanced/ci-gh-actions",
         "advanced/cd-autoupgrades",
-        "advanced/add-to-existing",
-        "advanced/vsc",
+        "advanced/compose-to-acorn",
         "advanced/projects",
       ],
     },
@@ -109,12 +115,12 @@ const sidebars = {
             "reference/authoring/args-and-profiles",
             "reference/authoring/localdata",
             "reference/authoring/permissions",
-            "reference/authoring/labels",
             "reference/authoring/services",
             "reference/authoring/advanced",
             "reference/authoring/nested-acorns"
           ]
         },
+        "reference/auto-upgrades",
         "reference/encryption",
         "reference/services"
       ],

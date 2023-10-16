@@ -25,3 +25,7 @@ The run counter is only visible when the link is shared as HTML or Markdown.
 ## Viewing shared images
 
 You can view all the images you have shared along with some stats on how many instances have been running over the last day, week, month, and year.
+
+## Stats
+
+Once the link has been shared and users start consuming it, you can see how many times the link has been used to deploy the Acorn. You can see the number of runs over the last day, week, month, and year.

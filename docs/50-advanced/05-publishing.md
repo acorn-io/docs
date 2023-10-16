@@ -81,7 +81,3 @@ You can manually pull the Acorn image:
 ```shell
 acorn pull index.docker.io/myorg/image:v1.0
 ```
-
-## Additional Information
-
-* See [Credentials](60-architecture/02-security-considerations.md) docs for details on how registry credentials are scoped and stored.

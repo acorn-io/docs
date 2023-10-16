@@ -2,11 +2,15 @@
 title: Overview
 ---
 
+Applications that need databases can leverage Acorns that provide a database.
+
 ## Services
 
-Acorn allows you define and deploy multiple containerized applications and link them together. This can be done by defining multiple containers in a single Acornfile or by deploying multiple Acorns and linking them together. The draw back to this approach is the user needs to look at each definition and map the configuration values to the consuming containers. Something as simple as one using `user` instead of `username` can cause a misconfiguration and require an update to the Acornfile.
+Acorn allows you define and deploy multiple containerized applications and link them together. This can be done by defining multiple containers in a single Acornfile or by deploying multiple Acorns and linking them together. When it comes to data services there is a draw back to the approach because the user needs to look at each Acorns definition and map the configuration values to the consuming containers. Something simple like one container using `user` instead of `username` can cause a misconfiguration and require an update to the Acornfile.
 
-To solve this problem Acorn provides a standardized `service` type that can be used to simplify the configuration between services. So multiple Acorns that implement the same `service` can easily be swapped out and replaced without any updates to the consuming Acornfile.
+To address this problem Acorn provides a standardized `service` type that can be used to simplify the configuration between applications. Allowing multiple Acorns that implement the same `service` can easily be swapped out and replaced without any updates to the consuming Acornfile.
+
+### Service Structure
 
 All services have the same basic structure:
 
@@ -19,7 +23,7 @@ services: name: {
 }
 ```
 
-a consuming app can then reference the service by name:
+a consuming app can then reference the service by name. In this example the service is named `db`, but it could be named something else:
 
 ```acorn
 services: db: {
@@ -59,6 +63,4 @@ secrets: admin: {
 }
 ```
 
-In this example the `app` container is using the `db` service. The `db` service is defined in the same Acornfile and the `app` container is referencing the `db` service by name. The `app` container is using the `db` service to get the `address`, `ports`, `secrets`, and `data` values. The `app` container is then using those values to configure the `DB_HOST`, `DB_PORT`, `DB_USER`, `DB_PASS`, and `DB` environment variables.
-
-By using the `service` type the `app` container can easily consume another database service that implements the same `db` service in the Acornfile. This allows more flexibility in the deployment of the `app` Acorn. For instance, the RDS Aurora MySQL service implements the `db` service. So the `app` Acorn can be deployed to a local development environment using the `mariadb` container and then deployed to production using the `rds` container without any changes to the `app` Acornfile.
+In this example the `app` container is using the `db` service, and not the `mariadb` container directly. By using the service interface, when it comes time to deploy to production and the application operators want to use a managed service like RDS, the service can be swapped out without updates to the package Acorn.

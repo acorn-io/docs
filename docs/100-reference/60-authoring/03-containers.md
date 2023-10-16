@@ -35,7 +35,7 @@ Now when `acorn build .` or `acorn run -i .` is run, the `my-app` container will
 
 ### Customized build behavior
 
-Acorn provides options to customize the building of OCI images. If the Dockerfile is not in the root directory of the `context` you can specify the location using the `dockerfile` parameter. If the image is a multi-stage build, the desired target can be specified. See [args and profiles](07-args-and-profiles.md) to see how to customize these values at build and runtime.
+Acorn provides options to customize the building of OCI images. If the Dockerfile is not in the root directory of the `context` you can specify the location using the `dockerfile` parameter. If the image is a multi-stage build, the desired target can be specified. See [args and profiles](reference/authoring/args-and-profiles) to see how to customize these values at build and runtime.
 
 ```acorn
 containers: {
@@ -159,7 +159,7 @@ containers: {
 }
 ```
 
-The above example has a `db` container with the `MYSQL_ROOT_PASSWORD` variable set by a [secret](38-authoring/05-secrets.md) in the Acornfile. The `DATABASE_NAME` is set to a static value, and the `USER_SET_VALUE` is defined by a user [arg](38-authoring/07-args-and-profiles.md). When launched the container can access these environment variables as needed.
+The above example has a `db` container with the `MYSQL_ROOT_PASSWORD` variable set by a [secret](reference/authoring/secrets) in the Acornfile. The `DATABASE_NAME` is set to a static value, and the `USER_SET_VALUE` is defined by a user [arg](reference/authoring/args-and-profiles). When launched the container can access these environment variables as needed.
 
 ## Files
 
@@ -342,7 +342,7 @@ The second sidecar above is a service that runs alongside the primary frontend c
 
 ## Memory
 
-There are times that you want to define the amount of memory that an Acorn will use for resource management purposes. This can be defined by the `memory` property and is settable for all `workloads` (`containers` and `jobs`). Check out the [memory reference documentation](100-reference/06-compute-resources.md#memory) for more information on ways to set memory.
+There are times that you want to define the amount of memory that an Acorn will use for resource management purposes. This can be defined by the `memory` property and is settable for all `workloads` (`containers` and `jobs`). Check out the [memory reference documentation](production/acorn-sizing) for more information on ways to set memory.
 
 ```acorn
 containers: {
@@ -363,7 +363,7 @@ The `memory` property can be abbreviated to `mem` in the file.
 
 ## Compute Classes
 
-When you want to specify what infrastructure your Acorn's workload will run on, you use Compute Classes. You can set the class of a workload by defining by the `class` property definable on all workloads (`containers` and `jobs`). Check out the [compute class documentation](100-reference/06-compute-resources.md#compute-classes) for more information.
+When you want to specify what infrastructure your Acorn's workload will run on, you use Compute Classes. You can set the class of a workload by defining by the `class` property definable on all workloads (`containers` and `jobs`). Check out the [compute class documentation](production/acorn-sizing) for more information.
 
 ```acorn
 containers: {
@@ -380,5 +380,4 @@ containers: {
 
 ## Additional Reading
 
-* [Acorn Security Considerations](60-architecture/02-security-considerations.md)
-* [Acornfile reference](100-reference/03-acornfile.md)
+* [Acornfile reference](reference/authoring/acornfile)
