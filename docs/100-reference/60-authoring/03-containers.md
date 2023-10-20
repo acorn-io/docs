@@ -89,7 +89,7 @@ An example of a named port:
 containers: {
     db: {
         image: "mysql"
-        ports: expose: "mysql:3306/tcp"
+        ports: "mysql:3306/tcp"
     }
 }
 ```
@@ -102,8 +102,7 @@ As an author, there are three scopes used to define the port's **default** acces
 
 | Scope | Accessibility                                       |
 | ------|-----------------------------------------------------|
-| `internal`| Containers defined within the Acorn image (default) |
-| `expose` | Containers running across the cluster               |
+| `internal`| Containers defined within the Acorn image (default). Doesn't need to be specified |
 | `publish` | Accessible outside the cluster by consumers         |
 
 ```acorn

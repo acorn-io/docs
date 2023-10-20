@@ -29,3 +29,7 @@ containers: app: {
 ```
 
 In the above example the service db parameters are accessed using the `@{service.db}` syntax. Ports are referenced by the expected value, in this case `3306` for MySQL. However, the actual port number may not be `3306` as it can be dynamically assigned during the service creation.
+
+## Additional Info
+
+* [Creating Services](/reference/services)

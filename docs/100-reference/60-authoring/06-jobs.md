@@ -30,6 +30,8 @@ The `schedule` key makes this a cron based job. The `schedule` field must be a v
 
 Acorn supports four events that can trigger a job to run: `create`, `update`, `stop`, and `delete`. By default jobs will run on create and update. To change this behavior, use the `events` field.
 
+Even with event subscriptions, assume the job will run at least once. The job should be idempotent, and also detect the expected event is infact being processed.
+
 The `create` event will run the job when the app is created, or when the job is first added to the Acornfile.
 
 The `update` event will run the job when the app is updated or started from stop.

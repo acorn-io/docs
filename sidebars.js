@@ -34,18 +34,13 @@ const sidebars = {
         "sharing-acorns/links",
       ]
     },
-    {
-      type: 'category',
-      label: 'Hands On with Acorn',
-      items: [
-        "hands-on-with-acorn/dev-mode",
-      ],
-    },
+    "hands-on-with-acorn",
     "sandbox",
     {
       "type": "category",
       "label": "Developing with Acorn",
       items: [
+        "development/dev-mode",
         "development/vsc",
       ]
     },
@@ -68,6 +63,8 @@ const sidebars = {
         "databases/overview",
         "databases/mariadb",
         "databases/postgres",
+        "databases/redis",
+        "databases/mongodb",
       ],
     },
     {
@@ -75,8 +72,8 @@ const sidebars = {
       label: "AWS Integration",
       items: [
         "aws/overview",
-        "aws/infrastructure",
-        "aws/services"
+        //"aws/infrastructure",
+        //"aws/services"
       ]
     },
     {

@@ -98,7 +98,7 @@ The secret will be decrypted when it is bound into the running app.
 
 Alternatively, the Kubernetes secrets could be created using other tools and consumed by the running app by binding the secrets at runtime.
 
-#### Complete encryption example
+### Complete encryption example
 
 Using the following Acornfile we will pass in an encrypted secret using the methods above.
 
@@ -118,7 +118,7 @@ secrets: "user-password": {
 }
 ```
 
-##### To pass in via an arg
+#### To pass in via an arg
 
 ```shell
 acorn secret encrypt "secret password"
@@ -147,3 +147,7 @@ acorn run -s pre-created-secret:user-password .
 ```
 
 Instead of manually creating the secret via command line in the second step, a separate process could apply the manifests with the encrypted value.
+
+## Additional Info
+
+* [Working with Secrets in Acornfiles](/reference/authoring/secrets)

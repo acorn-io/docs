@@ -33,6 +33,8 @@ You will need a GitHub account to signup for the Acorn platform.
 
 To get started with the Acorn CLI follow the instructions for your OS, and then log in to create an account.
 
+If you don't see your option below, follow our more detailed installation [instructions](install).
+
 ### MacOS & Linux
 
 To install the Acorn CLI on MacOS or Linux, run the following command in your terminal.
@@ -41,19 +43,13 @@ To install the Acorn CLI on MacOS or Linux, run the following command in your te
 brew install acorn-io/cli/acorn
 ```
 
-For Linux-based systems, if you do not have Homebrew installed, you can also download the binary from this URL:
-
-* [https://cdn.acrn.io/cli/default_linux_amd64_v1/acorn](https://cdn.acrn.io/cli/default_linux_amd64_v1/acorn)
-
-Next, make the binary executable and move it to your path. Once, you have done this you can run the `acorn` command from your terminal to login.
-
 ### Windows
 
 For Windows systems, you can download the CLI from this URL:
 
-* [https://cdn.acrn.io/cli/default_windows_amd64_v1/acorn.exe](https://cdn.acrn.io/cli/default_windows_amd64_v1/acorn.exe)
-
-Then, make the binary executable and move it to your path. Once, you have done this you can run the `acorn` command from your terminal to login.
+```shell
+scoop install acorn
+```
 
 ## Acorn Login
 
@@ -270,12 +266,21 @@ From the same folder as your Acornfile, run the following command.
 
 ```bash
 acorn run -n my-todo .
+# my-todo
+# STATUS: ENDPOINTS[] HEALTHY[] UPTODATE[]
+# ┌──────────────────────────────────────────────────────────────────────────────────────────┐
+# | STATUS: ENDPOINTS[https://my-todo-ee4a095d.0bh0qd.on-acorn.io] HEALTHY[1] UPTODATE[1] OK |
+# └──────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 Now the application will start and when the app is ready, it will show you a URL to reach the application endpoint. You can also get the URL endpoint by running:
 
 ```shell
-acorn ps
+acorn ps 
 ```
 
-Which will show the running applications and their endpoints.
+Which will show the running applications and their endpoints. Go ahead and click on the URL to see your application running.
+
+## Next Steps
+
+Now that you have deployed your first application, you can explore the Acorn UI to see the running application and the services that were provisioned. You can also do a deep dive into working with Acorn in the [Hands On guide](hands-on-with-acorn).

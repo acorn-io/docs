@@ -616,6 +616,33 @@ services: "my-service": {
 
 `generated` has a single key `job` that defines which job in the Acornfile will be ran to generate the service. The contents of `/run/secrets/output` will be parsed as an Acornfile and the service will be created from that.
 
+### consumer
+
+Consumer allows you to specify a set of permissions that the consuming services will get. These permissions must be a superset of the final permissions that are created at render time.
+
+For example:
+
+```acorn
+services: s3: {
+    generated: job: "apply"
+    consumer: {
+        rules: [{
+            verbs: [
+                "s3:*",
+            ]
+            apiGroups: [
+                "aws.acorn.io"
+            ]
+            resources: [
+                "*"
+            ]
+        }]
+    }
+}
+```
+
+When the apply job renders the service, they can create more specific permissions, that are scoped down to the specific bucket that is created.
+
 ## services (generated)
 
 The generated service is the definition consumed by other Acorn applications.

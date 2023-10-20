@@ -135,33 +135,3 @@ The above will output into /etc/config_file:
 key=value1
 key0=value2
 ```
-
-## Templates
-
-Templates provide a way to bulk add additional fields to objects.
-
-To do this, the template is declared for the top level Acorn object, and then a set of `[]` to bind to the nested objects field.
-
-```acorn
-args: dev: false
-containers: {
-    app: {}
-    db: {}
-}
-
-// ... Other objects ...
-
-if !args.dev {
-    containers: [string]: {
-        probes: [
-            // ... probe definitions
-        ]
-    }
-
-    containers: [Name= =~ "db"]: {
-        ports: internal: "\(Name)-metrics-port:5000/http" // Metrics port
-    }
-}
-```
-
-In the above example when the `args.dev` variable is not set, all containers would have [probes](reference/authoring/containers) assigned. In the case of the `db` container it would have a metrics port defined. The field's name is assigned to the `Name` variable if the regex matches `db`, the `Name` variable can then be referenced in the template.

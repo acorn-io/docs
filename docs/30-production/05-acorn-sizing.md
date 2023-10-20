@@ -59,6 +59,28 @@ acorn run -m 1Gi -n hello-world ghcr.io/acorn-io/hello-world
 acorn update -m 1Gi hello-world
 ```
 
+### Memory values in Acornfiles
+
+You can also specify the memory value for containers in your Acornfile. This is useful if you know the minimum memory requirement is above the defaults for the compute class you are using.
+
+```acorn
+containers: web: {
+    image "nginx"
+    memory: "1Gi"
+}
+```
+
+This will allocate 1Gi of memory for the web container.
+
+When deploying an Acorn or Service, you can assign additional memory as well. This is useful as you might want to allocate more memory for your production workloads vs. development. Here is an example:
+
+```acorn
+services: mariadb: {
+    image: "ghcr.io/acorn-io/mariadb:v10.#.#-#"
+    memory: "4Gi"
+}
+```
+
 ### Valid memory values
 
 Supported value formats for memory flags include
@@ -69,3 +91,42 @@ Supported value formats for memory flags include
 - 0x1000_0000 -> `268_435_456`
 
 These all translate into an exact amount of bytes. We encourage you use the binary representation of large quantities of bytes when interacting with memory such as `Ki`, `Mi`, `Gi`, and `Pi`.
+
+## Set ComputeClass in the Acornfile
+
+Setting compute classes in your Acorn file is not recommended because it restricts portability of your Acorn.
+
+If you are using an Acornfile to define your specific deployment for CD [CD and AutoUpgrades](advanced/cd-autoupgrades) then it makes sense to define in the Acornfile.
+
+### On an Acorn and Service
+
+When describing an Acorn deployment in an Acornfile, you can specify the compute class with the `class` field on the acorn:
+
+```acorn
+services: mariadb: {
+    class: "m5"
+    image: "ghcr.io/acorn-io/mariadb:v10.#.#-#"
+    autoUpgrade: true
+}
+
+acorns: app: {
+    class: "c5"
+    image: "ghcr.io/acorn-io/hello-world:v1.#.#"
+    autoUpgrade: true
+}
+```
+
+In this example, the `mariadb` service will be deployed on an `m5` compute class and the `app` acorn will be deployed on a `c5` compute class. If you don't specify a compute class, the default compute class will be used, same as on the command line.
+
+### On a container
+
+This is possible, but not recommended. If you want to specify a compute class for a container, you can do so with the `class` field on the container:
+
+```acorn
+containers: nginx: {
+    image: "nginx"
+    class: "t3"
+}
+```
+
+In this example, the `nginx` container will be deployed on a `t3` compute class. If you don't specify a compute class, the default compute class will be used, same as on the command line.

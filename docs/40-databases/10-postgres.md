@@ -26,7 +26,7 @@ The Postgres Acorn can be used by defining a service in your Acornfile:
 
 ```acorn
 services: postgres: {
-    image: "ghcr.io/acorn-io/postgres:v1.#.#" // pulls the latest 1.x version
+    image: "ghcr.io/acorn-io/postgres:v15.#-#" // pulls the latest 1.x version
 }
 
 containers: "my-app": {
@@ -41,3 +41,9 @@ containers: "my-app": {
     }
 }
 ```
+
+The example will use the latest version of Postgres 15 that has been packaged as an Acorn.
+
+## Examples
+
+See [examples folder](https://github.com/acorn-io/postgres/tree/main/examples) for a sample application using this service.

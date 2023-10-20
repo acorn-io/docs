@@ -9,6 +9,8 @@ By default, Acorn will deploy with the default port configurations specified in 
 
 All published ports in the Acornfile that are defined as type HTTP will be deployed and exposed via 80/443 automatically. This traffic will go through a load balancer managed by Acorn and will be routed to the appropriate container based on host headers.
 
+The way to work with published ports is the `-p` flag. The flag is used to publish ports that were not defined to be published and/or assign custom names. In the examples below, we are using it to assign a name to a port that was defined to be published in the Acornfile.
+
 ## DNS
 
 Acorn creates a unique DNS name for each published port in the Acorn. If you would like to use a custom domain name, you can do so by launching with the domain name and creating a CNAME record in your DNS provider that points to the Acorn DNS name.
@@ -45,3 +47,7 @@ acorn run -p docs.cloudnautique.com:docs my-docs
 ```
 
 A TLS certificate will be issued for `docs.cloudnautique.com` when DNS is configured to point to the Acorn DNS name. The certificate will be automatically renewed by Acorn when it is close to expiring.
+
+## Additional Info
+
+* [Defining Ports in Acornfiles](/reference/authoring/containers#network-ports)

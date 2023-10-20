@@ -6,7 +6,7 @@ title: MariaDB
 
 The MariaDB Acorn provides a containerized instance of MariaDB through the Acorn service interface. It is designed to be suitable for development environments. The data volume is backed by a persistent volume in the cluster, but is not considered highly available.  It can easily be swapped out for other Acorns that implement the service interface, like RDS, in production environments.
 
-The Acorn results in a sevice that follows this structure:
+The Acorn results in a service that follows this structure:
 
 ```acorn
 services: db: {
@@ -26,7 +26,7 @@ The MariaDB Acorn can be used by defining a service in your Acornfile:
 
 ```acorn
 services: db: {
-    image: "ghcr.io/acorn-io/mariadb:v1.#.#" // pulls the latest 1.x version
+    image: "ghcr.io/acorn-io/mariadb:v10.#.#-#" // pulls the latest 1.x version
 }
 ```
 
@@ -34,7 +34,7 @@ This definition uses all of the defaults for the Acorn when deploying. to consum
 
 ```acorn
 services: db: {
-    image: "ghcr.io/acorn-io/mariadb:v1.#.#" // pulls the latest 1.x version
+    image: "ghcr.io/acorn-io/mariadb:v10.#.#-#" // pulls the latest 10.x.x version
 }
 
 containers: wp: {
@@ -57,3 +57,7 @@ The above Acornfile consumes the MariaDB service and uses the credentials to con
 ```
 
 The `secrets` property of a service is a list of secret names that can be referenced by a consuming container.
+
+## Examples
+
+See [examples folder](https://github.com/acorn-io/mariadb/tree/main/examples/my-todo) for a sample application using this service.

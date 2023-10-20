@@ -6,6 +6,8 @@ title: Publish TCP/UDP
 
 By default, Acorn will deploy with the default port configurations specified in the Acornfile. This behavior can be overridden at runtime if needed. For TCP/UDP ports a load balancer and unique DNS name is created by Acorn pointing to the exposed endpoint.
 
+The way to work with published ports is the `-p` flag. The flag is used to publish ports that were not defined to be published and/or assign custom names. In the examples below, we are using it to assign a name to a port that was defined to be published in the Acornfile.
+
 ### DNS settings
 
 Acorn creates a unique DNS name for each published port in the Acorn. If you would like to use a custom domain name, you can do so by launching with the domain name and creating a CNAME record in your DNS provider that points to the Acorn DNS name.
@@ -25,3 +27,7 @@ mc
 ```
 
 You could now create a CNAME to the address in the ENDPOINTs section of the output.
+
+## Additional Info
+
+* [Defining Ports in Acornfiles](/reference/authoring/containers#network-ports)
