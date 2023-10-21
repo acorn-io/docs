@@ -38,7 +38,7 @@ In some cases you might want to test something in the actual environment that is
 - Attach a dev session and clone the source code
 
   - ```bash
-    acorn dev -n [APP_NAME] --cloun [acorn args]
+    acorn dev -n [APP_NAME] --clone [acorn args]
     ```
 
 :::note

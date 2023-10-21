@@ -4,13 +4,15 @@ title: Configure Acorn for AWS
 
 ## Overview
 
-Acorn can be configured to deploy and manage applications in your AWS account. The Acorn platform will provision and manage all of the components needed to deploy and run your applications. With Acorn managing the resources, developers will be able to provision and consume AWS services from your account without needing to have direct access to the AWS console.
+In Acorn teams and enterprise accounts, Acorn can be configured to deploy and manage applications in your AWS account. The Acorn platform will provision an EKS Cluster and manage all of the components needed to deploy and run your applications. With Acorn managing the EKS cluster, developers will be able to provision and consume AWS services from your account without needing to have direct access to the AWS console.
 
 ## Setting up AWS
 
+AWS integration is exclusive to the teams and enterprise plans. If you are on the free or teams plan, you must upgrade to use the AWS integrations.
+
 ### AWS Keys
 
-For Acorn to manage infrastructure in your AWS account, you will need to provide a temporary set of keys that Acorn can use to provision and manage resources. The keys will be used to create an IAM role that Acorn can assume to manage resources in your account. The keys will only need to be provided once while setting up and can be revoked after the Acorn platform has been configured.
+For Acorn to manage infrastructure in your AWS account, you will need to provide a temporary set of keys that Acorn can use to provision and manage AWS services like EKS, RDS, and S3. The keys will be used to create an IAM role that Acorn can assume to manage resources in your account. The keys will only need to be provided once while setting up and can be revoked after the Acorn platform has been configured.
 
 The AWS Keys can be from an IAM user with administrative permissions. The keys can be temporary and provided with an STS token, or permanent keys can be used for the initial setup.
 

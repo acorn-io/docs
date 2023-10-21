@@ -21,7 +21,7 @@ MariaDB is deployed from an Acorn that creates a service and injects the credent
 Start by cloning the repo and spend a minute to explore the structure.  
 
 ```shell
-git clone https://github.com/acorn-io/docs-hands-on-example:latest
+git clone https://github.com/acorn-io/docs-hands-on-example
 cd docs-hands-on-example
 tree
 ```
@@ -202,7 +202,9 @@ Once within the shell, you can see the contents of the file api_logs.txt availab
 
 You can run the commands within the container shell by passing them as parameters
 
-acorn exec school /bin/sh -c 'cat logs/api_logs.txt'
+```shell
+acorn exec school /bin/sh -c 'ls logs/'
+```
 
 ## Exploring the Volumes and Secrets
 
@@ -260,20 +262,20 @@ containers: school: {
 }
 ```
 
-Let’s reveal the admin credentials and compare them with the environment variables available within the application container.  
+Let’s reveal the admin credentials and compare them with the environment variables available within the application container. The values in your output will differ because they are randomly generated at runtime. The important thing to note is that the values match.
 
 ```shell
-acorn secret reveal school.db.admin
+acorn secret reveal school.db.user
 # NAME              TYPE      KEY        VALUE
-# school.db.admin   basic     password   a^+GQpY!2Y+_m&4p
-# school.db.admin   basic     username   root
+# school.db.user   basic     password   a^+GQpY!2Y+_m&4p
+# school.db.user   basic     username   btzgszisyus
 ```
 
 Let’s check the environment variables to see if they are the same.  
 
 ```shell
 acorn exec school /bin/sh -c 'echo $DB_USER;echo $DB_PASS'
-# root
+# btzgszisyus
 # a^+GQpY!2Y+_m&4p
 ```
 
@@ -353,7 +355,8 @@ It’s also possible to attach a dev session to a pre-existing Acorn. Let’s at
 acorn dev -n school
 ```
 
-Lets make a small change in the UI code to update the user prompt.
+Lets make a small change in the UI code to update the user prompt. Open the file `app/public/index.html`
+with your favorite editor and make the following changes.
 
 ```html
 <!-- Form for entering new student -->
@@ -415,8 +418,8 @@ Now lets do the same thing for volumes:
 ``` shell
 acorn volumes
 NAME                BOUND-VOLUME   CAPACITY   VOLUME-CLASS   STATUS    ACCESS-MODES   CREATED
-school.log-data     log-data       10Gi       ebs-retain     bound     RWO            70m ago
-school.db.db-data   db-data        10Gi       ebs-retain     bound     RWO            70m ago
+school.log-data     log-data       10Gi       ebs-retain     released  RWO            70m ago
+school.db.db-data   db-data        10Gi       ebs-retain     released  RWO            70m ago
 ```
 
 Now we can remove the volumes by name:
@@ -426,7 +429,7 @@ acorn volumes rm school.log-data
 acorn volumes rm school.db.db-data
 ```
 
-We walked through this process manually, but it is possible to delete everything with a single command:
+We walked through this process manually, but it is possible to delete everything except volumes with a single command:
 
 ```shell
 acorn rm -af school
