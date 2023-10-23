@@ -78,7 +78,7 @@ Running the below command shows Acorn that are deployed and running.
 acorn apps
 # NAME        IMAGE                              COMMIT         CREATED     ENDPOINTS                                    MESSAGE
 # 
-# school.db   ghcr.io/acorn-io/mariadb:v1.0.0*   4935ab94ff11   3m30s ago                                                OK
+# school.db   ghcr.io/acorn-io/mariadb:v10.11.5-1*   4935ab94ff11   3m30s ago                                                OK
 # 
 # school      bcd59c211a1b                       e0701dc2b023   3m33s ago   <https://school-c60a2fb7.0bh0qd.on-acorn.io>   OK
 ```

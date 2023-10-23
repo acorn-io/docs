@@ -1,5 +1,5 @@
 ---
-title: Complete Reference
+title: Acornfile
 ---
 
 ## Root
@@ -944,7 +944,7 @@ secrets: "my-secret": {
 ### type
 
 The common pattern in Acorn is for secrets to be generated if not supplied. `type`
-specifies how the secret can be generated. Refer to [the secrets documentation](/reference/authoring/secrets) for
+specifies how the secret can be generated. Refer to [the secrets documentation](/authoring/secrets) for
 descriptions of the different secret types and how they are used.
 
 ```acorn
@@ -957,7 +957,7 @@ secrets: "a-token": {
 ### params
 
 `params` are used to configure the behavior of the secrets generation for different types.
-Refer to [the secrets documentation](/reference/authoring/secrets) for
+Refer to [the secrets documentation](/authoring/secrets) for
 descriptions of the different secret types and how their parameters.
 
 ```acorn
@@ -973,7 +973,7 @@ secrets: "my-token": {
 ### data
 
 `data` defines the keys and non-sensitive values that will be used by the secret.
-Refer to [the secrets documentation](/reference/authoring/secrets) for
+Refer to [the secrets documentation](/authoring/secrets) for
 descriptions of the different secret types and how to use data keys and values.
 
 ```acorn

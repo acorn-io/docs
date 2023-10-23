@@ -87,7 +87,26 @@ const sidebars = {
         "advanced/projects",
       ],
     },
-
+    {
+      "type": "category",
+      "label": "Creating Acorns",
+      "items": [
+        "authoring/overview",
+        "authoring/best-practices",
+        "authoring/structure",
+        "authoring/containers",
+        "authoring/volumes",
+        "authoring/secrets",
+        "authoring/jobs",
+        "authoring/args-and-profiles",
+        "authoring/localdata",
+        "authoring/permissions",
+        "authoring/services",
+        "authoring/advanced",
+        "authoring/nested-acorns",
+        "authoring/create-services"
+      ]
+    },
     {
       "type": "category",
       "label": "Reference",
@@ -97,29 +116,9 @@ const sidebars = {
           "label": "Command Line",
           "href": "https://docs.acorn.io/reference/command-line/acorn",
         },
-        {
-          "type": "category",
-          "label": "Authoring Acornfiles",
-          "items": [
-            "reference/authoring/overview",
-            "reference/authoring/best-practices",
-            "reference/authoring/acornfile",
-            "reference/authoring/structure",
-            "reference/authoring/containers",
-            "reference/authoring/volumes",
-            "reference/authoring/secrets",
-            "reference/authoring/jobs",
-            "reference/authoring/args-and-profiles",
-            "reference/authoring/localdata",
-            "reference/authoring/permissions",
-            "reference/authoring/services",
-            "reference/authoring/advanced",
-            "reference/authoring/nested-acorns"
-          ]
-        },
+        "reference/acornfile",
         "reference/auto-upgrades",
         "reference/encryption",
-        "reference/services"
       ],
       "collapsed": true
     },

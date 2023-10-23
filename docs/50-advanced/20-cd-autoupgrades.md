@@ -38,19 +38,19 @@ Acorn supports using an Acornfile to describe the deployments of other Acorns an
 
 ```acorn
 services: mariadb: {
-    image:         "ghcr.io/acorn-io/mariadb:v1.0.#"
+    image:         "ghcr.io/acorn-io/mariadb:v10.11.#-#"
     autoUpgrade:   true
     notifyUpgrade: true
 }
 
 acorns: wordpress: {
-    image: "example.com/acorn-io/wordpress:v1.#.#"
+    image: "example.com/wordpress:v1.#.#"
     autoUpgrade: true
     services: ["mariadb:db"]
 }
 ```
 
-In the above Acorn a service is defined for mariadb with autoupgrade set to true. The `mariadb` service will only update on a patch release. Since this is our data layer, we also set notifyUpgrade instead of just auto upgrading.
+In the above Acorn a service is defined for mariadb with autoupgrade set to true. The `mariadb` service will only update on a patch release or package update. Since this is our data layer, we also set notifyUpgrade instead of just auto upgrading.
 
 The `wordpress` Acorn is defined with autoUpgrade set to true. This will automatically upgrade the Acorn to the latest minor release because of the `v1.#.#` regex in the tag. Since this is a presentation layer without state, we will allow the autoupgrade.
 

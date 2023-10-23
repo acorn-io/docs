@@ -234,7 +234,7 @@ Our Acornfile will be used to tie together the services, Docker build, and deplo
 Fill in the file called `Acornfile` with the following contents.
 
 ```acorn
-services: db: image: "ghcr.io/acorn-io/mariadb:v1.#.#"
+services: db: image: "ghcr.io/acorn-io/mariadb:v10.#.#-#"
 
 containers: app: {
         build: context: "."

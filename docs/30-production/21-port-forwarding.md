@@ -9,7 +9,7 @@ If you need to access a port on a container that is not exposed publicly, you ca
 If you have deployed the MariaDB Acorn and wanted to access the database directly without exposing it publicly, you could use the following command:
 
 ```shell
-acorn run -n mariadb ghcr.io/acorn-io/mariadb:v#.#.#
+acorn run -n mariadb ghcr.io/acorn-io/mariadb:v#.#.#-#
 # ...
 acorn port-forward mariadb 3306
 # Forwarding 127.0.0.1:3306 => 3306 for container [mariadb.mariadb-58464dcc55-hkxg5]

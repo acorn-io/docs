@@ -50,4 +50,4 @@ A TLS certificate will be issued for `docs.cloudnautique.com` when DNS is config
 
 ## Additional Info
 
-* [Defining Ports in Acornfiles](/reference/authoring/containers#network-ports)
+* [Defining Ports in Acornfiles](/authoring/containers#network-ports)
