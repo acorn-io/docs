@@ -392,7 +392,7 @@ We can delete the application by running the below command:
 acorn rm school
 ```
 
-Acorn will say that the application has been deleted. This means the app and containers have been removed along with the `school.db` app and containers. The volumes and secrets are still retained as a safety precaution against accidental deletion.
+Acorn will say that the application has been deleted. This means the app and containers have been removed along with the `school.db` app and containers. The volumes and secrets are still retained as a safety precaution against accidental deletion. It should also be noted, the `school.db` app is removed because it does not contain a job that responds to the `delete` event. Nested Acorns that have clean up jobs, will not be deleted when the parent is deleted, and must be removed explicitly.
 
 Lets delete the secrets and volumes associated with the application.
 
@@ -429,11 +429,13 @@ acorn volumes rm school.log-data
 acorn volumes rm school.db.db-data
 ```
 
-We walked through this process manually, but it is possible to delete everything except volumes with a single command:
+We walked through this process manually, but it is possible to delete more aggressively. For example, to delete all of the resources in the school app, we can run:
 
 ```shell
 acorn rm -af school
 ```
+
+This command will remove the volumes, secrets, and nested Acorns that do not have a job that responds to the `delete` event. If your nested Acorn has a job that responds to the `delete` event, then you will need to remove it explicitly. This is done so that accidental deletion of persistent data is avoided.
 
 Caution should be used when deleting everything like this, there isn't a way to recover the data once it is deleted.
 

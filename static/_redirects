@@ -1,0 +1,28 @@
+/reference/command-line/* https://runtime-docs.acorn.io/reference/command-line/:splat
+/reference/admin/* https://runtime-docs.acorn.io/reference/admin/:splat
+/reference/compute-resources /production/sizing 302
+/reference/services /authoring/create-services 302
+/publishing /advanced/publishing 302
+/running/projects /production/projects 302
+/installation/installing /install 302
+/installation/options https://runtime-docs.acorn.io/installation/options 302
+/installation/upgrade /install#upgrading-cli 302
+/installation/uninstall /install#uninstall-cli 302
+/running/volumes /production/persistent-storage 302
+/running/compute-resources /production/sizing 302
+/running/auto-upgrades /advanced/cd-autoupgrades 302
+/running/dev /development/dev-mode 302
+/running/alpha-image-allow-rules https://runtime-docs.acorn.io/running/alpha-image-allow-rules
+/running/namespaces-and-service-accounts https://runtime-docs.acorn.io/running/namespaces-and-service-accounts
+/running/events /advanced/events 302
+/integrations/github-actions /advanced/ci-gh-actions 302
+/architecture/* https://runtime-docs.acorn.io/architecture/:splat
+/running/networking /production/publish-http 302
+/running/certificates /production/publish-http#tls-certs 302
+/running/labels /authoring/labels 302
+/running/args-and-secrets /production/args 302
+/running/linking-acorns /advanced/linking-acorns 302
+/running/troubleshooting /hands-on-with-acorn 302
+/running/upgrades /advanced/upgrades 302
+/running/update-acorns /advanced/upgrades 302
+/running/remove-acorns /hands-on-with-acorn#cleanup 302

@@ -105,3 +105,19 @@ brew upgrade acorn-io/cli/acorn
 ### Binary
 
 Download the latest binary version and install following the binary install method.
+
+## Uninstall CLI
+
+Removing the CLI is straight forward.
+
+### Brew
+
+To uninstall using the brew package manager:
+
+```shell
+brew uninstall acorn-io/cli/acorn
+```
+
+### Binary
+
+To uninstall the CLI, simply remove the binary from your PATH.

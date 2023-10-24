@@ -54,6 +54,7 @@ const sidebars = {
         "production/publish-tcp-udp",
         "production/port-forwarding",
         "production/secrets",
+        "production/args",
       ],
     },
     {
@@ -85,11 +86,14 @@ const sidebars = {
         "advanced/cd-autoupgrades",
         "advanced/compose-to-acorn",
         "advanced/projects",
+        "advanced/upgrades",
+        "advanced/events",
+        "advanced/linking-acorns",
       ],
     },
     {
       "type": "category",
-      "label": "Creating Acorns",
+      "label": "Authoring Acorns",
       "items": [
         "authoring/overview",
         "authoring/best-practices",
@@ -103,6 +107,7 @@ const sidebars = {
         "authoring/permissions",
         "authoring/services",
         "authoring/advanced",
+        "authoring/labels",
         "authoring/nested-acorns",
         "authoring/create-services"
       ]
@@ -122,6 +127,7 @@ const sidebars = {
       ],
       "collapsed": true
     },
+    "faq",
   ]
 };
 

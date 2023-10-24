@@ -34,4 +34,4 @@ acorn run -v my-data,size=5G,class=ebs-retain[IMAGE]
 
 The volume class used, including the default, may have restrictions on the size of volumes created or the access modes available. If your volume uses a class that is not available or uses class settings that violate its rules, then will not run. A descriptive error will be produced to explain any failures.
 
-You can see a list of available volume classes and their restrictions, if any, with the [`acorn offerings volumeclasses`](reference/command-line/acorn_offerings_volumeclasses) command.
+You can see a list of available volume classes and their restrictions, if any, with the [`acorn offerings volumeclasses`](https://runtime-docs.acorn.io/reference/command-line/acorn_offerings_volumeclasses) command.
