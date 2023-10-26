@@ -94,6 +94,11 @@ const config = {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
         additionalLanguages: ['cue', 'docker'],
+      },
+      algolia: {
+        appId: '7QCEFR54LA',
+        apiKey: '0091e059262804a95d3253d28bc90eeb',
+        indexName: 'acorn-io',
       }
     })
 };
