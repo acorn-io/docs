@@ -122,6 +122,7 @@ const sidebars = {
           "href": "https://docs.acorn.io/reference/command-line/acorn",
         },
         "reference/acornfile",
+        "reference/built-in-vars",
         "reference/auto-upgrades",
         "reference/encryption",
       ],

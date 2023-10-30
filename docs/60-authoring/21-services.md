@@ -4,7 +4,7 @@ title: Services
 
 ## Consuming services
 
-When you are authoring the Acornfile for your application you can define cloud services that will be provisioned for your application. The services will be deployed alongside your application at deploy/run time. To learn how to create your own service Acorns see [services](authoring/create-services) in the reference section.
+When you are authoring the Acornfile for your application you can define cloud services that will be provisioned for your application. The services will be deployed alongside your application at deploy/run time. To learn how to create your own service Acorns see [services](/authoring/create-services) in the reference section.
 
 ### Wiring services into your Acorn app
 
