@@ -11,4 +11,7 @@ containers: default: {
 		build: target:  "static"
 		ports: publish: "80/http"
 	}
+
+	env: EP: "@{services.default.endpoint}"
+	memory: 768Mi
 }
