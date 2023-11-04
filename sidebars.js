@@ -41,6 +41,7 @@ const sidebars = {
       "label": "Developing with Acorn",
       items: [
         "development/dev-mode",
+        "development/acornfile",
         "development/vsc",
       ]
     },
