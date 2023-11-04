@@ -34,6 +34,55 @@ secrets: {
 
 The example shows the secret `db-root-password` being consumed as an environment variable in the db container. The secret is of type token and will automatically be generated at runtime by Acorn. The user can then use the Acorn CLI to get the credential if needed.
 
+### Consume all secret keys as environment variables
+
+Sometimes you have multiple secrets that need to be consumed as environment variables. The example below shows how to consume all the values in a secret as environment variables named after the keys. The keys must be set exactly as you want them to show up in the environment
+
+```acorn
+containers: app: {
+    image: "mysql"
+    env: {
+        "secret://mysql-info": ""
+    }
+}
+
+secrets: "mysql-info": {
+    type: "opaque"
+    data: {
+        "MYSQL_ROOT_PASSWORD": "Foo"
+    }
+}
+```
+
+This will set the environment variable "MYSQL_ROOT_PASSWORD" to the value "Foo" in the container.
+
+This is really beneficial if you need to consume somewhat arbitrary secret data as environment variables. Take an app that will run a 3rd party script that requires unknown environment variables. The user can bind in a secret at deploy time that has the needed info.
+
+```acorn
+containers: nginx: {
+    image: "nginx"
+    env: "secret://php-env-vars": ""
+}
+
+secrets: "php-env-vars": {
+    type: "opaque"
+}
+```
+
+Now if the user creates a secret like:
+
+```shell
+acorn secret create php-env-vars --data PHP_ENV_VAR1=foo --data PHP_ENV_VAR2=bar
+```
+
+Then runs the acorn like so from the directory with the Acornfile:
+
+```shell
+acorn run -n php-app -s php-env-vars:php-env-vars .
+```
+
+The nginx container will have the env vars.
+
 ### Consuming secrets in templates
 
 Secrets in templates are wrapped in `${}`. It is possible to pass secret configuration data to a container in a pre-rendered form. This next example shows how you can add a configuration file with sensitive data.
