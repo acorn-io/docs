@@ -2,7 +2,7 @@
 title: Overview
 ---
 
-Applications that need databases can leverage Acorns that provide a database.
+Applications that store state in a database can leverage prebuilt Acorns that provide an instance of a database.
 
 ## Services
 
@@ -16,14 +16,20 @@ All services have the same basic structure:
 
 ```acorn
 services: name: {
+    // ip or FQDN of a service
     address: ""
+    // ports exposed by the service
     ports: []
+    // secrets exposed by the service
     secrets: []
+    // Set of permissions that will be granted to the consuming container
+    consumer: []
+    // Data the service author believes is needed by the consuming app
     data: {}
 }
 ```
 
-a consuming app can then reference the service by name. In this example the service is named `db`, but it could be named something else:
+A consuming app can then reference the service by name. In this example the service is named `db`, but it could be named something else:
 
 ```acorn
 services: db: {
@@ -45,6 +51,7 @@ containers: app: {
         DB_PASS: "@{services.db.secrets.admin.password}"
         DB: "@{services.db.data.dbName}"
     }
+    consumes: ["db"]
 }
 
 containers: mariadb: {
@@ -64,6 +71,8 @@ secrets: admin: {
 ```
 
 In this example the `app` container is using the `db` service, and not the `mariadb` container directly. By using the service interface, when it comes time to deploy to production and the application operators want to use a managed service like RDS, the service can be swapped out without updates to the package Acorn.
+
+The app container is using `consumes` to require the service to be available before starting. Containers should always use consumes for services even if no permissions are exposed on the implementation. If another implementation is used later on it could pass along permissions.
 
 ## Services Versions
 

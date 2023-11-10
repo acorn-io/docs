@@ -33,11 +33,11 @@ containers: "my-app": {
     image: "my-app"
     ports: publish: "80/http"
     env: {
-        DB_USER: "@{services.postgres.secrets.admin.username}"
-        DB_PASS: "@{services.postgres.secrets.admin.password}"
-        DB_HOST: "@{services.postgres.address}"
-        DB_PORT: "@{services.postgres.ports.5432}"
-        DB_NAME: "@{services.postgres.data.dbName}"
+        DB_USER: "@{service.postgres.secrets.admin.username}"
+        DB_PASS: "@{service.postgres.secrets.admin.password}"
+        DB_HOST: "@{service.postgres.address}"
+        DB_PORT: "@{service.postgres.ports.5432}"
+        DB_NAME: "@{service.postgres.data.dbName}"
     }
 }
 ```
