@@ -265,12 +265,25 @@ containers: env1: {
 }
 ```
 
+### consumes
+
+`consumes` should always be used when a service is required for the container to run. The `consumes` field defines both the dependency and permissions that the container will need to interact with the service. When no permissions are defined on the service, the behavior is the same as `dependsOn`.
+
+```acorn
+services: db: {
+    image: "ghcr.io/acorn-io/aws/rds/aurora/mysql/cluster:*"
+}
+
+containers: app: {
+    image: "nginx"
+    consumes: ["db"]
+    // ...
+}
+```
+
 ### dependsOn
 
-`dependsOn` will prevent a container from being created and/or updated until all of
-it's dependencies are considered ready. Ready service are considered ready as soon as
-their [ready probe](#probes-probe) passes.  If there is no ready probe it is as soon
-as the containers have started.
+`dependsOn` is used to enforce ordering on startup by preventing a container from being created and/or updated until all dependencies are considered ready. Dependencies are considered ready as soon as the [ready probe](#probes-probe) passes. If there is no ready probe, the dependency is considered ready when the container starts.
 
 ```acorn
 containers: web: {

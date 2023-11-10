@@ -26,6 +26,12 @@ When using existing images, prefer official DockerHub library images if availabl
 
 Use specific versions and tags of images, at least to the minor version in SemVer. Acorn will package all images at build time and reference them by their SHA, ensuring that the application will always pull the same image. For maintainability and ease of troubleshooting, using a specific version is preferred.
 
+### Services
+
+#### Dependencies
+
+Containers that depend on services should always use `consumes` instead of the `dependsOn` field. Consumes can also carry permissions needed to access the service where `dependsOn` only enforces order. When no permissions are involved, the `consumes` field behaves like `dependsOn`.
+
 ## Upgrades
 
 When dealing with stateful applications, use a unique container per instance. Do **not** use scale for stateful applications. This ensures each instance has a unique and stable FQDN. Scaling up and down is always deterministic.
