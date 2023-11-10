@@ -42,11 +42,11 @@ containers: wp: {
     ports: publish: "80/http"
     consumes: ["db"]
     env: {
-        WORDPRESS_DB_HOST: "@{service.db.address}"
-        WORDPRESS_DB_PORT: "@{service.db.ports.3306}"
-        WORDPRESS_DB_USER: "@{service.db.secrets.user.username}"
-        WORDPRESS_DB_PASS: "@{service.db.secrets.user.password}"
-        WORDPRESS_DB_NAME: "@{service.db.data.dbName}"
+        WORDPRESS_DB_HOST:     "@{service.db.address}"
+        WORDPRESS_DB_PORT:     "@{service.db.ports.3306}"
+        WORDPRESS_DB_USER:     "@{service.db.secrets.user.username}"
+        WORDPRESS_DB_PASSWORD: "@{service.db.secrets.user.password}"
+        WORDPRESS_DB_NAME:     "@{service.db.data.dbName}"
     }
 }
 ```
