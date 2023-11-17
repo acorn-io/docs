@@ -81,7 +81,7 @@ Where:
 
 * `NAME`: is an optional name for the port, like `db` or `metrics`.
 * `PORT`: is the required numeric value of the port.
-* `TYPE`: is an optional value of `UDP`, `TCP`, or `HTTP`.
+* `TYPE`: is an optional value of `udp`, `tcp`, `http2` or `http`.
 
 An example of a named port:
 
