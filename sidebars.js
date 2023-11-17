@@ -125,6 +125,7 @@ const sidebars = {
         "reference/acornfile",
         "reference/built-in-vars",
         "reference/auto-upgrades",
+        "reference/functions",
         "reference/encryption",
       ],
       "collapsed": true
