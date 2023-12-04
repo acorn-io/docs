@@ -55,6 +55,10 @@ volumes: {
 secrets: {
 }
 
+// Define images to be included during build process
+images: {
+}
+
 // Arbitrary information that can be embedded to help render this Acornfile
 localData: {
 }
@@ -939,6 +943,30 @@ volumes: data: {
  ]
 }
 ```
+
+## Images
+
+`images` define images that will be included in the build process that are behind conditional logic and not seen during builds.
+
+```acorn
+Image: {
+    image:          "index.docker.io/nginx"
+    acornBuild:     {}
+    containerBuild: {}
+}
+```
+
+### image
+
+This is a standard OCI image reference to a container or Acorn image.
+
+### acornBuild
+
+`acornBuild` contains the same fields as the [build](#build-1) field in [acorns](#acorns).
+
+### containerBuild
+
+`containerBuild` contains the same fields as the [build](#build) field in [containers](#containers).
 
 ## secrets
 
