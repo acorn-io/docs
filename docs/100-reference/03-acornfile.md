@@ -348,7 +348,7 @@ containers: web: {
   internal: ["80:8080/http"]
  }
  
-    // Define publically accessible HTTP port 80 that maps to the container port 8080
+ // Define publically accessible HTTP port 80 that maps to the container port 8080
     // available publically as a DNS assigned at runtime
  ports: publish: "80:8080/http"
 }

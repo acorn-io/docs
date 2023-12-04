@@ -140,6 +140,52 @@ This Acornfile defines two containers, one called `my-webapp` and the other `dat
 
 In the database container, we are using the `ports` parameter because only the my-webapp container will communicate with the database.
 
+### Port Paths
+
+Publish ports of type `http2` and `http` may optionally define a path to append to the end of the public endpoint displayed for the Acorn.
+
+```acorn
+containers: {
+    "my-webapp": {
+        image: "my-org/my-webapp"
+        ports: publish: [
+            {
+                targetPort: 80
+                protocol: "http"
+                path: "/home"
+            },
+        ]
+    }
+}
+```
+
+This Acornfile defines a container with a publish port that appends `/home` to the displayed endpoint.
+
+```shell
+acorn run -n my-webapp my-org/my-webapp-acorn
+# ...
+┌─────────────────────────────────────────────────────────────────────────────────────────────────┐
+| STATUS: ENDPOINTS[https://my-webapp-ae1dff2c.g53lg5.on-acorn.io/home] HEALTHY[1] UPTODATE[1] OK |
+└─────────────────────────────────────────────────────────────────────────────────────────────────┘
+```
+
+Paths also support interpolation of secrets and service attributes. 
+
+```acorn
+containers: {
+    "my-webapp": {
+        // ...
+        ports: publish: [
+            {
+                targetPort: 80
+                protocol: "http"
+                path: "/home/@{secrets.my-login.username}"
+            },
+        ]
+    }
+}
+```
+
 ## Environment variables
 
 Containers often use environment variables as a way to configure common settings or pass in secrets. Acorn supports both methods in the container definition.

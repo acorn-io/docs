@@ -8,7 +8,7 @@ When you are authoring the Acornfile for your application you can define cloud s
 
 ### Wiring services into your Acorn app
 
-Service attritibutes are accessed through the `@{}` syntax in the Acornfile. Here is a simple example of accessing the `address` attribute of a service named `db`. For complete service syntax see the [services](/reference/acornfile#services-consuming) section in the Acornfile reference.
+Service attributes are accessed through the `@{}` syntax in the Acornfile. Here is a simple example of accessing the `address` attribute of a service named `db`. For complete service syntax see the [services](/reference/acornfile#services-consuming) section in the Acornfile reference.
 
 ```acorn
 // This service exposes an address and a secret

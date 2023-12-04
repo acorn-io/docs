@@ -73,3 +73,17 @@ jobs: {
     }
 }
 ```
+
+## Network ports
+
+Like containers, jobs may also define [ports](/authoring/containers#network-ports). Job ports are only accessible while the job is running. Similarly, any endpoints generated for publish ports defined by a job will only exist while the job is running.
+
+```acorn
+jobs: {
+    "cluster-reconcile-hook": {
+        image: "registry.io/myorg/cluster-manager-hook"
+        ports: publish: "8080/http"
+        entrypoint: ["/hook.sh"]
+    }
+}
+```
