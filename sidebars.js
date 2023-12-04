@@ -107,6 +107,7 @@ const sidebars = {
         "authoring/localdata",
         "authoring/permissions",
         "authoring/services",
+        "authoring/images",
         "authoring/advanced",
         "authoring/labels",
         "authoring/nested-acorns",

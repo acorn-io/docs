@@ -4,7 +4,7 @@ title: Structure
 
 ## The top level keys of an Acornfile
 
-An Acornfile has predefined top level structs, and it is recommended to define them in the following order:
+An Acornfile has predefined top level structures, and it is recommended to define them in the following order:
 
 ```acorn
 args: { // defines arguments the consumer can provide }
@@ -15,6 +15,7 @@ jobs: { // defines tasks to run on changes or via cron }
 acorns: { // other Acorn applications that need to be deployed with your app (databases, etc.) }
 secrets: { // defines secret bits of data that are automatically generated or passed by the user }
 localData: { // default data and configuration variables }
+images: { // defines container images that are used in the Acornfile behind conditionals }
 ```
 
 At a minimum, the Acornfile needs to specify at least one container to run.
