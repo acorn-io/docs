@@ -27,7 +27,7 @@ Currently this Acorn does not have any configuration options, but some could be 
 In the examples folder you can find a sample application using this Service. It consists in a Python backend based on the FastAPI library which returns the number of times the application was called. This incremental value is saved in the underlying Redis database and incremented with each request.
 
 ```acorn
-service: db: {
+services: db: {
     image: "ghcr.io/acorn-io/redis:v7.#.#-#"
 }
 
