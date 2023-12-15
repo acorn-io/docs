@@ -209,7 +209,7 @@ secrets: {
 }
 ```
 
-In the above example the secret renders a template secret with one key called "password.txt", consuming the token from the secret named "token." See [advanced topics](authoring/advanced) for other uses for the template secret type.
+In the above example the secret renders a template secret with one key called "password.txt", consuming the token from the secret named "token." See [advanced topics](advanced) for other uses for the template secret type.
 
 ### Token secrets
 
@@ -236,7 +236,7 @@ The `token` field in the data object is optional and needs to be left the defaul
 
 ### Generated secrets
 
-Generated secrets allow storing sensitive data output from a [job](authoring/jobs).
+Generated secrets allow storing sensitive data output from a [job](jobs).
 
 ```acorn
 containers: {
