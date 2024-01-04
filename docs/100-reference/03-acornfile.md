@@ -466,6 +466,7 @@ containers: web: {
 containers: web: {
     image: "nginx"
     permissions: {
+  // TODO - Namespace? Good or bad? it shows up a lot. 
   // These are permissions that will only be granted for this container in its namespace.
   rules: [{
    // Configure what actions you can do on the defined resources
@@ -543,7 +544,7 @@ containers: {
 
 ### metrics
 
-`metrics` allows you to specify the HTTP port and path on which the container will expose metrics. Acorn will take this information and create the standard `prometheus.io` scrape annotations on the Kubernetes Pod(s) created for the container.
+`metrics` allows you to specify the HTTP port and path on which the container will expose metrics.
 
 ```acorn
 containers: "mycontainer": {
@@ -554,14 +555,6 @@ containers: "mycontainer": {
         path: "/metrics"
     }
 }
-```
-
-The Pod created for this container will have the following annotations:
-
-```yaml
-prometheus.io/scrape: "true"
-prometheus.io/port: "8080"
-prometheus.io/path: "/metrics"
 ```
 
 ## services (consuming)
@@ -605,7 +598,7 @@ containers: web: {
 
 ### memory, mem
 
-`memory` allows you to define a memory resource limit for the pods running/provisioning the service.
+`memory` allows you to define a memory resource limit for the containers and other workloads provisioned by the service.
 
 ### environment, env
 
@@ -918,12 +911,11 @@ volumes: data: {
 
 ### class
 
-`class` refers to the `storageclass` within kubernetes.
+`class` refers to the storage solution to use.
 
 ```acorn
 volumes: data: {
-        // either "default" or a storageclass from `kubectl get sc`
- class: "longhorn"
+    class: "longhorn"
 }
 ```
 

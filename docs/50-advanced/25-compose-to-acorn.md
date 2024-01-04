@@ -1,7 +1,7 @@
 ---
 title: Convert from Docker Compose
 ---
-
+// TODO - thoughts on this one? I think this is ok to leave.
 Docker Compose has been a popular tool for developers to define and run multi-container applications on their desktops and local machines. When it comes to production workloads, organizations have selected Kubernetes which creates a gap from the development environment to production. Acorn on the other hand, provides a way to define and run multi-container applications suitable for development and production with the same artifact and tooling.
 
 This provides a high level guide to manually translate Docker Compose concepts into Acornfiles. There isn't an automated tool available at this time, but this guide should cover some of the basics.
@@ -18,6 +18,7 @@ In Docker Compose, a service is a where containers are defined. In Acorn, contai
 
 ### Compose Networks
 
+// TODO - same here. ok to keep?
 There is no direct translation for Docker Compose networks in Acorn. Acorn uses Kubernetes networking under the hood that provides a single network for containers to consume.
 
 ### Compose Configs
