@@ -466,7 +466,6 @@ containers: web: {
 containers: web: {
     image: "nginx"
     permissions: {
-  // TODO - Namespace? Good or bad? it shows up a lot. 
   // These are permissions that will only be granted for this container in its namespace.
   rules: [{
    // Configure what actions you can do on the defined resources

@@ -1,7 +1,6 @@
 ---
 title: Permissions
 ---
-// TODO - Well, this is a pretty advance concept in general. I'm not sure how to explain this without kubernetes
 When writing applications, you can run into a situation where your application needs to interact with on-cluster resources. In a typical Kubernetes environment you would need to go through a somewhat involved process to accomplish this. Luckily, `permissions` is a straight forward Acornfile definition that allows you to simplify that process.
 
 Let's take a look at an example. Here we have a `container`, named API, that we want to grant CRUD operations on the `FooResource` in the application's namespace. For all other namespaces, we want the `container` to only be able to retrieve `FooResources`.
