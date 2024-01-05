@@ -910,7 +910,7 @@ volumes: data: {
 
 ### class
 
-`class` refers to the storage solution to use.
+`class` refers to the [volumeclass offering](/production/persistent-storage) to use.
 
 ```acorn
 volumes: data: {
