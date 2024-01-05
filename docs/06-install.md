@@ -93,8 +93,6 @@ For permanent effect add the same line to your shell specific profile:
 
 ## Upgrading CLI
 
-In order to upgrade Acorn on a Kubernetes cluster you must first download an updated Acorn CLI version.
-
 ### Brew
 
 ```shell
