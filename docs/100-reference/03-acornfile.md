@@ -567,7 +567,7 @@ containers: foo: {
 }
 ```
 
-If a GID is omitted the default GID is 0.
+If the GID is omitted it's defaulting to the same value as the UID (i.e. `user: "1000"` is the same as `user: "1000:1000"`) .
 
 ## services (consuming)
 
