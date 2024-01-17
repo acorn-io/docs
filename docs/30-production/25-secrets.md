@@ -54,7 +54,7 @@ Once you have created a secret if you need to edit it you can use the `acorn sec
 acorn secret edit my-app-secret-creds
 ```
 
-This will open up your editor and you can modify the values. When you save and exit the secret will be updated. Changing this value will cause containers to be restarted unless the Acorn using them is configured to ignore updates.
+This will open up your editor and you can modify the values. When you save and exit the secret will be updated. Changing the secret values will cause containers consuming the secret to be restarted. This behavior can be changed if the Acorn is configured to ignore updates by the author.
 
 #### Updating a secret
 
