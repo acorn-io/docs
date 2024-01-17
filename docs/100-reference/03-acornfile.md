@@ -556,6 +556,19 @@ containers: "mycontainer": {
 }
 ```
 
+### user
+
+Containers sometimes need to run as other users. To accomplish this a user id and group id can be provided for the container processes to run as.
+
+```acorn
+containers: foo: {
+  image: "some/image:v1"
+  user: "1000:1000"
+}
+```
+
+If the GID is omitted it's defaulting to the same value as the UID (i.e. `user: "1000"` is the same as `user: "1000:1000"`) .
+
 ## services (consuming)
 
 `services` are Acorns that will deploy cloud services outside the scope of Acorn and provide endpoints, credentials, and other information needed for other Acorns to consume the service. These services are typically managed by the cloud provider.  For example, a service could be a RDS database or a S3 bucket.

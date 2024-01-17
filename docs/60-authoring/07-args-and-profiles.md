@@ -109,7 +109,7 @@ profiles: {
 Acorn automatically uses the `dev` profile when when running in dev mode (`acorn dev` or `acorn run -i`).
 :::
 
-In this case when an Acorn consumer deploys the Acorn in production, 3 replicas will be deployed. When the developer working on this app runs it locally with `acorn run --profile dev .` there will only be a single replica deployed by default.
+In this case when an Acorn consumer deploys the Acorn in production, 3 replicas will be deployed. When the developer working on this app runs it locally with `acorn run . --profile dev` there will only be a single replica deployed by default.
 
 In either case, consumers of the Acorn can pass `--replicas #` to customize the deployment.
 

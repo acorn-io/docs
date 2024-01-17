@@ -168,6 +168,7 @@ Acorn makes multiple types of secrets available to the Acorn author.
  1. **Token:** Used to generate and/or store long secret strings.
  1. **Generated:** Used to take the output of a `job` and pass along as a secret bit of info.
  1. **Opaque:** A generic secret that can store defaults in the Acorn, or is meant to be overridden by the user to pass unknown/unstructured sensitive data.
+ 1. **Credential:** These are a special type of secret that will prompt the user for the values at runtime. These are useful for things like API keys to popular services like OpenAI.
 
 ### Basic secrets
 
@@ -288,6 +289,57 @@ secrets: {
         type: "opaque"
     }
 }
+```
+
+### Credential secrets
+
+Credential secrets are similar to opaque because they can hold any data you need, but they provide helpful UX to the end user by displaying instructions and prompting the user for the values. The type must start with `credential` but should be extended to display something meaningful to the user like `credential.openai.com/gpt4`.
+
+```acorn
+secrets: "openai-key": {
+    type: "credential.openai.com/gpt4"
+    params: {
+        instructions: localData.instructions
+    }
+    data: {
+        OPENAI_API_KEY: ""
+    }
+}
+
+localData: instructions: """
+# OpenAI API Key
+
+To get this key follow these instructions: https://platform.openai.com/docs/quickstart?context=python
+"""
+```
+
+Now when the above is run, the user will be prompted for the value of `OPENAI_API_KEY` and the instructions will be displayed.
+
+```shell
+acorn run -n gpt4 .
+[+] Building 1.4s (5/5) FINISHED
+ => [internal] load build definition from Dockerfile                                                                                                                     0.0s
+ => => transferring dockerfile: 58B                                                                                                                                      0.0s
+ => [internal] load .dockerignore                                                                                                                                        0.0s
+ => => transferring context: 64B                                                                                                                                         0.0s
+ => [internal] load build context                                                                                                                                        0.0s
+ => => transferring context: 616B                                                                                                                                        0.0s
+ => [1/1] COPY . /                                                                                                                                                       0.0s
+ => exporting to image                                                                                                                                                   0.7s
+ => => exporting layers                                                                                                                                                  0.1s
+ => => exporting manifest sha256:c31bd14fd9d434240bd4f50477f168f8d0d93440845fd76a33d187b84ddbd6f7                                                                        0.0s
+ => => exporting config sha256:c83fad1b39a27e78d5055a3c01cfc789abff1852a55633427a563bffd09a5ad1                                                                          0.0s
+ => => pushing layers                                                                                                                                                    0.4s
+ => => pushing manifest for 495962627484.dkr.ecr.us-east-2.amazonaws.com/acorn/cloudnautique-46c452ebb422/acorn:latest@sha256:c31bd14fd9d434240bd4f50477f168f8d0d934408  0.2s
+gpt4
+
+   OpenAI API Key
+
+  To get this key follow these instructions:
+  https://platform.openai.com/docs/quickstart?context=python
+
+
+? OPENAI_API_KEY *****************
 ```
 
 ## External secrets
