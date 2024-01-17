@@ -18,7 +18,7 @@ In Docker Compose, a service is a where containers are defined. In Acorn, contai
 
 ### Compose Networks
 
-There is no direct translation for Docker Compose networks in Acorn. Acorn uses Kubernetes networking under the hood that provides a single network for containers to consume.
+There is no direct translation for Docker Compose networks in Acorn. Acorn has its own networking model that involves a single network for the containers in project / region.
 
 ### Compose Configs
 

@@ -44,6 +44,39 @@ acorn run -s my-predefined-creds:user-creds registry.example.com/myorg/image
 
 When this Acorn runs it will use the values in the `my-predefined-creds` secret.
 
+### Modifying a Secret
+
+#### Editing a secret
+
+Once you have created a secret if you need to edit it you can use the `acorn secret edit` command. This will allow you to interactively modify the secret.
+
+```shell
+acorn secret edit my-app-secret-creds
+```
+
+This will open up your editor and you can modify the values. When you save and exit the secret will be updated. Changing this value will cause containers to be restarted unless the Acorn using them is configured to ignore updates.
+
+#### Updating a secret
+
+Use update to create a new or update an existing secret. This will allow you to pass the secret data in via the command line.
+
+```shell
+# Create secret with specific keys
+acorn secret update --data key-name=value --data key-name2=value2 my-secret
+```
+
+```shell
+# Read full secret from a file. The file should have a type and data field.
+acorn secret update --file secret.yaml my-secret
+```
+
+```shell
+# Read key value from a file
+acorn secret update --data @key-name=secret.yaml my-secret
+```
+
+Changing the secret values will cause containers consuming the secret to be restarted. This behavior can be changed if the Acorn is configured to ignore updates by the author.
+
 ## Encrypting data
 
 ### Overview
