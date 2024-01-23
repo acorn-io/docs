@@ -37,6 +37,13 @@ const sidebars = {
     "hands-on-with-acorn",
     "sandbox",
     {
+      type: "category",
+      label: "Language Guides",
+      items: [
+        "run-an-app/go",
+      ]
+    },
+    {
       "type": "category",
       "label": "Developing with Acorn",
       items: [
@@ -67,17 +74,18 @@ const sidebars = {
         "databases/postgres",
         "databases/redis",
         "databases/mongodb",
+        "databases/existing-databases",
       ],
     },
-    {
-      type: "category",
-      label: "AWS Integration",
-      items: [
-        "aws/overview",
-        //"aws/infrastructure",
-        //"aws/services"
-      ]
-    },
+    //{
+    //type: "category",
+    //label: "AWS Integration",
+    //items: [
+    //"aws/overview",
+    //"aws/infrastructure",
+    //"aws/services"
+    //]
+    //},
     {
       "type": "category",
       "label": "Advanced Topics",
