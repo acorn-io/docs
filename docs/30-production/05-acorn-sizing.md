@@ -107,13 +107,13 @@ services: mariadb: {
 }
 
 acorns: app: {
-    class: "free"
+    class: "standard"
     image: "ghcr.io/acorn-io/hello-world:v1.#.#"
     autoUpgrade: true
 }
 ```
 
-In this example, the `mariadb` service will be deployed on an `standard` compute class and the `app` acorn will be deployed on a `free` compute class. If you don't specify a compute class, the default compute class will be used, same as on the command line.
+In this example, both the `mariadb` service and the `app` acorn will be deployed on an `standard` compute class. If you don't specify a compute class, the default compute class will be used, same as on the command line.
 
 ### On a container
 
