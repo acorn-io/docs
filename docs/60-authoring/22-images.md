@@ -62,11 +62,11 @@ images: {
     // Can be a container or Acorn image in a registry
     fromimage: image: "index.docker.io/redis"
     // The same fields from a container build can be used here.
-    fromdockerfile: build: {
+    fromdockerfile: containerBuild: {
         context: "."
     }
     // Same fields as an Acornfile build can be used here.
-    fromacornbuild: build: {
+    fromacornbuild: acornBuild: {
         context: "."
         acornfile: "Acornfile"
     }
@@ -77,7 +77,7 @@ containers: {
         image: images.fromimage.image
     }
     "docker-build": {
-        build: images.fromdockerfile.build
+        build: images.fromdockerfile.containerBuild
     }
 }
 
@@ -86,7 +86,7 @@ acorns: {
         image: images.fromimage.image
     }
     "from-acorn-build": {
-        build: images.fromacornbuild.build
+        build: images.fromacornbuild.acornBuild
     }
 }
 ```
